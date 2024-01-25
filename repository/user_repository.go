@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"github.com/divrhino/divrhino-trivia/database"
+	"github.com/MamdiaDiallo/blog2/database"
 	"github.com/gofiber/fiber/v2"
-	"github.com/divrhino/divrhino-trivia/handlers"
+	"github.com/MamdiaDiallo/blog2/handlers"
 )
 
 // GetUserByID retrieves a user by ID

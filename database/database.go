@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/MamdiaDiallo/blog2"
+	"github.com/MamdiaDiallo/blog2/database"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

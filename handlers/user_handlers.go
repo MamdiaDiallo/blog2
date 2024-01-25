@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"github.com/MamdiaDiallo/blog2"
+	"github.com/MamdiaDiallo/blog2/handlers"
 	"github.com/gofiber/fiber/v2"
-	"github.com/MamdiaDiallo/blog2"
+	"github.com/MamdiaDiallo/blog2/models"
 )
 
 // GetUser retrieves a user by ID
