@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/MamdiaDiallo/blog2"
 	"github.com/gofiber/fiber/v2"
-	"github.com/MamdiaDiallo/blog2"
 
 )
 
