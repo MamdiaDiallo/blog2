@@ -6,7 +6,6 @@ import (
 	"github.com/MamdiaDiallo/blog2/models"
 )
 
-// GetUser retrieves a user by ID
 func GetUser(c *fiber.Ctx) error {
 	userId := c.Params("id")
 
@@ -19,7 +18,6 @@ func GetUser(c *fiber.Ctx) error {
 	return c.JSON(user)
 }
 
-// CreateUser creates a new user
 func CreateUser(c *fiber.Ctx) error {
 	var newUser models.User
 

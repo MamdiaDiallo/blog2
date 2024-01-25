@@ -1,22 +1,24 @@
+// main.go
 package main
 
 import (
-	"github.com/MamdiaDiallo/blog2"
+	"github.com/divrhino/divrhino-trivia/database"
+	"github.com/divrhino/divrhino-trivia/routes"
 	"github.com/gofiber/fiber/v2"
-
 )
 
-func setupRoutes(app *fiber.App) {
-	app.Get("/user/:id", handlers.GetUser)
-	app.Post("/user", handlers.CreateUser)
-}
-
 func main() {
-	database.ConnectDb()
-
 	app := fiber.New()
 
-	setupRoutes(app)
+	// Initialisation de la connexion à la base de données
+	database.ConnectDb()
 
+	// Configuration des routes
+	routes.SetupUserRoutes(app)
+	routes.SetupInteractionRoutes(app)
+	routes.SetupFollowRoutes(app)
+	routes.SetupFavoriteRoutes(app)
+
+	// Démarrage du serveur
 	app.Listen(":3000")
 }

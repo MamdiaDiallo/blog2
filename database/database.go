@@ -1,3 +1,4 @@
+// database.go
 package database
 
 import (
@@ -5,17 +6,17 @@ import (
 	"log"
 	"os"
 
-	"github.com/MamdiaDiallo/blog2/database"
+	"github.com/divrhino/divrhino-trivia/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
 
-type Dbinstance struct {
+type DbInstance struct {
 	Db *gorm.DB
 }
 
-var DB Dbinstance
+var DB DbInstance
 
 func ConnectDb() {
 	dsn := fmt.Sprintf(
@@ -30,17 +31,19 @@ func ConnectDb() {
 	})
 
 	if err != nil {
-		log.Fatal("Failed to connect to database. \n", err)
+		log.Fatal("Failed to connect to the database. \n", err)
 		os.Exit(2)
 	}
 
-	log.Println("connected")
+	log.Println("Connected to the database")
 	db.Logger = logger.Default.LogMode(logger.Info)
 
-	log.Println("running migrations")
+	log.Println("Running migrations")
 	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.Article{})
+	db.AutoMigrate(&models.Comment{})
 
-	DB = Dbinstance{
+	DB = DbInstance{
 		Db: db,
 	}
 }
